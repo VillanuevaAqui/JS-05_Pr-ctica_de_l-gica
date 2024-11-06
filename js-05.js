@@ -8,38 +8,52 @@ function getRandomIntInclusive(min, max) {
   }  
 
 
-function Welcome(name, age, listMovies) {
+function welcome() {
 
 
-    const phrases = ["de mis favoritas", "obra maestra del cine", "unica de su genero"];     
-    name = "Alberto";
-    age = 23;
-    listMovies = ["Scary Movie", "Your name", "Pokemon"];
+    const phrases = ["de mis favoritas", "obra maestra del cine", "unica de su genero"]; 
+    const prhases2 = ["Dime tu pelicula favorita: ", "Tu segunda mejor pelicula: ", "Tu tercera mejor pelicula: "]    
+    nameUser = prompt("Como te llamas: ");
+    age = parseInt(prompt("Cual es tu edad?"));
+    const listMovies = [];
 
-    console.log("Hola " + name + " yo tambien tengo " + age + " años")
+    for (let i = 0; i < 3; i++){
+
+        let movie = prompt(prhases2[i]);
+        listMovies.push(movie);
+
+    }
+
+    alert("Hola " + nameUser + " yo tambien tengo " + age + " años")
 
     for (let i = 0; i < listMovies.length; i++){
 
-        console.log("La pelicula: " + listMovies[i] + " es una " + phrases[getRandomIntInclusive(0,2)]);
+        alert("La pelicula: " + listMovies[i] + " es una " + phrases[getRandomIntInclusive(0,2)]);
 
     }
 }
-
-Welcome();
 
 
 // ------------------------------- Ejercicio 2 - Highest number ---------------------------
 
 
-function bubbleSort (list) {
+function bubbleSort () {
     
     let temp, n;
-    
+    n = 10;
     temp = 0;
-    n = list.length;
+    const list = [];
+
+
+    for (let i = 0; i < n; i++){
+
+        let number = prompt("Ingrese el numero: " + (i+1));
+        list.push(number);
+
+    }
 
     for (let i = 0; i < n ; i++){
-        for (let j = 0; j < n - 1; j++ ){
+        for (let j = 0; j < n ; j++ ){
 
             if(list[j] < list[j+1]){
 
@@ -50,26 +64,29 @@ function bubbleSort (list) {
         }
     }
 
-    console.log(list);
+    alert(list);
 }
 
-bubbleSort([5,3,7,8,10,43,32]);
 
 
 // ------------------------------- Ejercicio 3 - Alarm ----------------------------
 
 function alarm(){
     
-        console.log("Se acabo el tiempo programado");
+        alert("Se acabo el tiempo programado");
 
 }
 
-let time = 1;
-setTimeout(alarm, time*1000);
+function callAlarm() {
+
+    let time = prompt("Ingrese el tiempo en segundos: ")
+    setTimeout(alarm, time*1000);
+
+}
+
+
 
 // ------------------------------- Ejercicio 4 - Palindrome -------------------------------
-
-let str = "Matemáticas";
 
 function normalizeText (text) {
 
@@ -80,7 +97,9 @@ function normalizeText (text) {
     
 }
 
-function palindrome (text) {
+function palindrome () {
+
+    let text = prompt("Ingrese la palabra a analizar")
 
     let inverText;
 
@@ -89,21 +108,29 @@ function palindrome (text) {
     inverText = inverText.reverse();
     inverText = inverText.join("");
 
+
+
     if (text === inverText){
 
-        return ("El texto: " + text + " si es un palindromo");
+        alert("El texto: " + text + " si es un palindromo");
     } else {
 
-        return ("El texto: " + text + " no es un palindromo");
+        alert("El texto: " + text + " no es un palindromo");
     }
 
      
 }
 
-console.log(palindrome("maria"));
 // -------------------------------- Ejercicio 5 - Factorial -----------------------------
 
 function factorial(num, numAcum = 1) {
+
+    if (num === undefined){
+
+        num = parseInt(prompt("Ingrese el numero factorial"));
+        factorial(num);
+
+    }
 
     if (num >= 1){
         if (numAcum === undefined){
@@ -123,12 +150,10 @@ function factorial(num, numAcum = 1) {
         }
     } else {
         
-        console.log(numAcum);
+        alert("El resultado es: " + numAcum);
 
     }
 }
-
-factorial(5);
 
 
 // -------------------------------- Ejercicio 6 - Flat array ---------------------------
@@ -142,6 +167,7 @@ function flatArray(arrayMultidimension){
 
 function flatArray2(arrayMultidimension){
 
+    
     const arrayFlat = [];
 
     arrayMultidimension = arrayMultidimension.join();
@@ -149,8 +175,15 @@ function flatArray2(arrayMultidimension){
     arrayMultidimension.forEach(element => {
         arrayFlat.push(parseInt(element));
     });
-    console.log(arrayFlat);
+    alert(arrayFlat);
     
 }
 
-flatArray2([1, [2, 3, [4, 5, [6], [7]]]]);
+function callFlatArray (){
+
+    flatArray2([1, [2, 3, [4, 5, [6]]]]);
+
+}
+
+
+

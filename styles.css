@@ -1,0 +1,33 @@
+body {
+
+    background-color: sienna;
+    color: white;
+    text-align: center;
+}
+
+.container-practice {
+
+    text-align: left;
+    margin: 20px;
+    border-radius: 20px;
+    background-color: aqua;
+    color: black;
+    padding: 20px;
+    max-width: 800px;
+    display: inline-block;
+
+}
+
+@media (min-width: 1700px) {
+
+
+    .container-practice{
+        min-width: 800px;
+        max-height: 150px;
+        display: inline-block;
+    }
+
+    /* … */
+  }
+  
+
